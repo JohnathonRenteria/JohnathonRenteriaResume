@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Johnathon Renteria — Resume</title>
+  <meta name="description" content="Resume and portfolio of experience for Johnathon Renteria." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --panel: #111419;
+      --ink: #e7edf3;
+      --muted: #aeb6c2;
+      --brand: #7cc4ff;
+      --accent: #a3ffb5;
+      --card: #0f1318;
+      --chip: #1a212b;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      --radius-xl: 20px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --maxw: 1100px;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink); background: radial-gradient(1200px 800px at 10% -10%, #18202a 0%, var(--bg) 50%), var(--bg);
+      line-height: 1.55; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+
+    /* --- Layout --- */
+    .shell { max-width: var(--maxw); margin: 0 auto; padding: 32px 20px 72px; }
+    header.topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+    header .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink); }
+    .brand .logo { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(145deg, #1b2430, #0e141c); box-shadow: inset 0 2px 8px rgba(255,255,255,0.05), 0 8px 24px rgba(0,0,0,0.35); display: grid; place-items: center; font-weight: 800; letter-spacing: 0.5px; color: var(--brand); }
+    .brand .meta { display: grid; }
+    .brand .meta .name { font-weight: 800; letter-spacing: 0.2px; }
+    .brand .meta .role { color: var(--muted); font-size: 0.95rem; }
+
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn { --bgc: #15202b; border: 1px solid #222b36; background: var(--bgc); color: var(--ink); padding: 10px 14px; border-radius: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; box-shadow: var(--shadow); font-weight: 600; }
+    .btn:hover { border-color: #2d3947; transform: translateY(-1px); }
+    .btn.primary { --bgc: linear-gradient(180deg, #1b2a38, #14202c); border-color: #284258; }
+
+    .grid { display: grid; grid-template-columns: 320px 1fr; gap: 24px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
+    aside { position: sticky; top: 18px; align-self: start; }
+    .card { background: linear-gradient(180deg, #0f1318, #0c1015); border: 1px solid #1a222d; border-radius: var(--radius-xl); box-shadow: var(--shadow); overflow: hidden; }
+    .card + .card { margin-top: 16px; }
+    .card .card-body { padding: 18px 18px; }
+
+    /* --- Profile --- */
+    .profile { display: grid; gap: 16px; }
+    .avatar { width: 100%; aspect-ratio: 5/3; background: radial-gradient(600px 200px at 20% 10%, #1d2631 0%, #0f141b 60%); border-bottom: 1px solid #1a222d; position: relative; }
+    .avatar::after { content: ""; position: absolute; inset: 0; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="90" viewBox="0 0 160 90" fill="none"><path d="M0 60 Q40 20 80 60 T160 60" stroke="%237cc4ff22" stroke-width="2"/></svg>') center/contain no-repeat; opacity: 0.6; }
+    .profile h1 { margin: 0; font-size: clamp(1.6rem, 2.4vw, 2rem); letter-spacing: 0.2px; }
+    .profile p { margin: 6px 0 0; color: var(--muted); }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .chip { padding: 7px 10px; border-radius: 999px; background: var(--chip); border: 1px solid #263042; font-size: 0.9rem; color: #d9e6f2; }
+
+    .contact { display: grid; gap: 10px; font-size: 0.95rem; }
+    .contact a { color: var(--ink); text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+
+    /* --- Main content --- */
+    main { display: grid; gap: 16px; }
+    section { background: linear-gradient(180deg, #0f1318, #0c1015); border: 1px solid #1a222d; border-radius: var(--radius-xl); box-shadow: var(--shadow); padding: 22px; }
+    section h2 { margin: 0 0 8px; font-size: 1.2rem; letter-spacing: 0.3px; }
+    .subtle { color: var(--muted); margin: 0 0 12px; font-size: 0.98rem; }
+
+    /* --- Experience --- */
+    .xp { display: grid; gap: 16px; }
+    .xp-item { background: var(--card); border: 1px solid #1a222d; border-radius: var(--radius-lg); padding: 16px; display: grid; gap: 8px; }
+    .xp-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+    .xp-role { font-weight: 700; }
+    .xp-meta { color: var(--muted); }
+    .xp-points { margin: 0; padding-left: 18px; }
+    .xp-points li { margin: 6px 0; }
+
+    /* --- Projects --- */
+    .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    @media (max-width: 700px) { .proj-grid { grid-template-columns: 1fr; } }
+    .proj { padding: 16px; border-radius: var(--radius-lg); background: var(--card); border: 1px solid #1a222d; }
+    .proj h3 { margin: 0 0 6px; font-size: 1.05rem; }
+    .proj p { margin: 0; color: var(--muted); }
+
+    /* --- Skills --- */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { padding: 7px 10px; border-radius: 999px; background: var(--chip); border: 1px solid #263042; font-size: 0.95rem; }
+
+    /* --- Footer --- */
+    footer { margin-top: 24px; color: var(--muted); text-align: center; font-size: 0.9rem; }
+
+    /* --- Print Styles --- */
+    @media print {
+      :root { --bg: #fff; --panel: #fff; --ink: #000; --muted: #333; --shadow: none; }
+      body { background: #fff; }
+      .btn, header.topbar, .avatar { display: none !important; }
+      .grid { grid-template-columns: 1fr; }
+      section, .card { background: #fff; border-color: #555; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#">
+        <div class="logo">JR</div>
+        <div class="meta">
+          <span class="name">Johnathon Renteria</span>
+          <span class="role">IT Support & Automations</span>
+        </div>
+      </a>
+      <div class="actions">
+        <a class="btn" href="#contact">Contact</a>
+        <a class="btn primary" href="resume.pdf" download>Download PDF</a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Sidebar -->
+      <aside>
+        <div class="card profile">
+          <div class="avatar"></div>
+          <div class="card-body">
+            <h1>IT Leader focused on automation, support, and vendor management</h1>
+            <p>Interim IT Director with hands-on experience rolling out MFA, building Google Apps Script automations, and launching analytics in Power BI. I love turning messy workflows into systems that make sense and are able to be interpeted by executives!</p>
+            <div class="chips">
+              <span class="chip">Google Workspace</span>
+              <span class="chip">Power BI</span>
+              <span class="chip">Google Apps Script</span>
+              <span class="chip">JAMF</span>
+              <span class="chip">Active Directory</span>
+              <span class="chip">8x8 VoIP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body contact" id="contact">
+            <strong>Contact</strong>
+            <a href="mailto:johnathon@example.com">johnathon@example.com</a>
+            <a href="tel:+15551234567">+1 (555) 123‑4567</a>
+            <a href="https://www.linkedin.com/in/johnathonrenteria" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+            <a href="https://github.com/jrenteria" target="_blank" rel="noreferrer noopener">GitHub</a>
+            <div class="chips">
+              <span class="chip">Tomball, TX</span>
+              <span class="chip">Open to Remote</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <strong>Highlights</strong>
+            <ul style="margin: 8px 0 0 18px;">
+              <li>Automated onboarding for Google, JAMF, 8x8, and Evolve</li>
+              <li>MFA rollout company-wide without downtime</li>
+              <li>Automating Quality Assurance department to a single form</li>
+              <li>Created an automation for a monthly completion spreadsheet through a third-party service using their API</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main -->
+      <main>
+        <section>
+          <h2>Experience</h2>
+          <p class="subtle">Focus areas: automation, device management, support, and leadership</p>
+          <div class="xp">
+            <article class="xp-item">
+              <div class="xp-head">
+                <div class="xp-role">Interim IT Director — ABC Home &amp; Commercial Services</div>
+                <div class="xp-meta">2024 – Present • Houston, TX</div>
+              </div>
+              <ul class="xp-points">
+                <li>Led company‑wide MFA rollout for Google Workspace with tailored policies per OU (CSR, Accounting, Executives, QA, Technicians).</li>
+                <li>Built Google Apps Script automations to generate audit docs, email notifications, and update Sheets; reduced manual QA work by 60%.</li>
+                <li>Designed Power BI dashboards (technician scores, category rollups, SLA KPIs) with robust data models and date tables.</li>
+                <li>Standardized onboarding pipeline across Google, JAMF, Evolve, 8x8; created repeatable SOPs and scripts.</li>
+              </ul>
+            </article>
+            <article class="xp-item">
+              <div class="xp-head">
+                <div class="xp-role">IT Support Specialist — ABC Home &amp; Commercial Services</div>
+                <div class="xp-meta">2024 – Present • Houston, TX</div>
+              </div>
+              <ul class="xp-points">
+                <li>Provisioned and managed Apple devices via JAMF; implemented compliance checks and remote remediation scripts.</li>
+                <li>Maintained 8x8 VoIP and Evolve CRM accounts; reduced onboarding time per hire by 30%.</li>
+                <li>Built phishing simulations (GoPhish), hosted assets, and created training pages to improve click‑through reporting.</li>
+              </ul>
+              <article class="xp-item">
+                <div class="xp-head">
+                  <div class="xp-role">University IT Specialist — Sam Houston State University</div>
+                  <div class="xp-meta">2021 – 2024 • Huntsville, TX</div>
+                </div>
+                <ul class="xp-points">
+                  <li>Scheudle and delivered 10-Minute promises to assist any professor quickly and effectively.</li>
+                  <li>Responsible for provisioning and set-up of all new devices that were to be deployed campus-wide.</li>
+                  <li>Help manage and keep track of inventory, not limited to only devices but all hardware.</li>
+                </ul>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <h2>Projects</h2>
+          <div class="proj-grid">
+            <div class="proj">
+              <h3>Automated QA Audit Generator</h3>
+              <p>Apps Script that turns Google Form submissions into templated PDFs, emails stakeholders, and logs scores for BI.</p>
+            </div>
+            <div class="proj">
+              <h3>Onboarding Orchestrator</h3>
+              <p>Sheet + Apps Script workflow to create Google accounts, add to JAMF, assign 8x8, and update inventory automatically.</p>
+            </div>
+            <div class="proj">
+              <h3>Power BI Technician Dashboard</h3>
+              <p>Model with standardized scores, letter grades, and branch slicers; supports 200‑point rubric across categories.</p>
+            </div>
+            <div class="proj">
+              <h3>MFA Rollout Playbook</h3>
+              <p>Policy matrix by OU, comms templates, exception handling, and step‑by‑step enablement for Workspace.</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>Skills</h2>
+          <div class="tags" aria-label="Skills">
+            <span class="tag">Google Workspace Admin</span>
+            <span class="tag">Power BI / DAX</span>
+            <span class="tag">Google Apps Script</span>
+            <span class="tag">JAMF Pro</span>
+            <span class="tag">Active Directory</span>
+            <span class="tag">8x8 Admin</span>
+            <span class="tag">Paylocity Workflows</span>
+            <span class="tag">PowerShell</span>
+            <span class="tag">Network Basics (SonicWall/UniFi)</span>
+          </div>
+        </section>
+
+        <section>
+          <h2>Certifications & Training</h2>
+          <ul style="margin: 8px 0 0 18px;">
+            <li>Pearson Information Technology Specialist in HTML and CSS</li>
+            <li>Pearson Microsoft Office Specialist: Microsoft Access Expert (Office 2019)</li>
+            <li>ICCP Information Systems</li>
+            <li>Pearson Information Technology Specialist in Databases</li>
+            <li>CCNA (In-Progess)</li>
+          </ul>
+        </section>
+
+        <section id="contact-main">
+          <h2>Get in touch</h2>
+          <p class="subtle">Best for roles in IT operations, systems admin, analytics, and automation. Open to remote or Houston‑area hybrid.</p>
+          <div class="actions">
+            <a class="btn primary" href="mailto:johnathon@example.com">Email Me</a>
+            <a class="btn" href="https://www.linkedin.com/in/johnathonrenteria" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+          </div>
+        </section>
+
+        <footer>
+          © <span id="y">2025</span> Johnathon Renteria. Built with HTML + CSS.
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <!-- If you want dynamic year without adding real JS dependencies -->
+  <script>
+    (function () { var y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear(); })();
+  </script>
+
+  <!--
+  🔧 Quick Customize Guide
+  1) Replace name, role, and contact info in the header and sidebar.
+  2) Update Experience items and bullets.
+  3) Swap project titles/descriptions to match your portfolio.
+  4) Place a PDF named resume.pdf next to this file to enable the Download button.
+  5) To change colors, tweak the CSS variables at the top (e.g., --brand, --accent).
+  -->
+</body>
+</html>
